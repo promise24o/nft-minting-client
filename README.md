@@ -50,8 +50,8 @@ Swagger (API Documentation)
 
 1️⃣ Clone the repository
 
-git clone https://github.com/YOUR_GITHUB_USERNAME/nft-minting-frontend.git
-cd nft-minting-frontend
+git clone https://github.com/promise24o/nft-minting-client/
+cd nft-minting-client
 
 2️⃣ Install dependencies
 
@@ -68,45 +68,35 @@ VITE_APP_BACKEND_URL=<YOUR_BACKEND_URL>
 
 npm run dev
 
-🛠 API Routes (Backend)
+  
+## API Routes
 
-NFT Metadata API
+### **POST `/api/nft/`**
+Stores metadata for a newly minted NFT.
 
-Method
+**Request Body:**
+{
+  "nftId": 1,
+  "name": "Cool NFT",
+  "description": "This is a rare NFT.",
+  "logoUrl": "https://example.com/nft.jpg",
+  "ownerAddress": "0x1234567890abcdef"
+}
+Response:
+{
+  "message": "NFT data stored successfully.",
+  "nft": {
+    "nftId": 1,
+    "name": "Cool NFT",
+    "description": "This is a rare NFT.",
+    "logoUrl": "https://example.com/nft.jpg",
+    "ownerAddress": "0x1234567890abcdef"
+  }
+}
+GET /api/nft/:nftId
+Fetches metadata for a specific NFT by its ID.
 
-Endpoint
-
-Description
-
-POST
-
-/api/nft/
-
-Store NFT metadata (ID, name, description, owner, image)
-
-GET
-
-/api/nft/:nftId
-
-Fetch metadata for a specific NFT by ID
-
-GET
-
-/api/nft/gallery/:ownerAddress
-
-Get all NFTs owned by a specific wallet address
-
-📄 API Documentation (Swagger)
-
-The backend provides a Swagger API documentation at:🔹 Deployed Swagger Docs
-
-Example API Route Documentation:
-
-POST /api/nft/
-
-✅ Stores metadata for a newly minted NFT.
-
-Request Body:
+Response:
 
 {
   "nftId": 1,
@@ -115,9 +105,42 @@ Request Body:
   "logoUrl": "https://example.com/nft.jpg",
   "ownerAddress": "0x1234567890abcdef"
 }
+GET /api/nft/gallery/:ownerAddress
+Retrieves all NFTs owned by a specific wallet address.
 
 Response:
+[
+  {
+    "nftId": 1,
+    "name": "Cool NFT",
+    "description": "This is a rare NFT.",
+    "logoUrl": "https://example.com/nft.jpg",
+    "ownerAddress": "0x1234567890abcdef"
+  },
+  {
+    "nftId": 2,
+    "name": "Another NFT",
+    "description": "This is another rare NFT.",
+    "logoUrl": "https://example.com/another-nft.jpg",
+    "ownerAddress": "0x1234567890abcdef"
+  }
+]
+API Documentation
+The backend provides a Swagger API documentation which can be accessed at: Deployed Swagger Docs
 
+Example API Route Documentation
+POST /api/nft/
+✅ Stores metadata for a newly minted NFT.
+
+Request Body:
+{
+  "nftId": 1,
+  "name": "Cool NFT",
+  "description": "This is a rare NFT.",
+  "logoUrl": "https://example.com/nft.jpg",
+  "ownerAddress": "0x1234567890abcdef"
+}
+Response:
 {
   "message": "NFT data stored successfully.",
   "nft": {
@@ -129,16 +152,14 @@ Response:
   }
 }
 
-🌍 Deployed Links
+## 🌍 Deployed Links
 
-🔹 Frontend: NFT Minting DApp🔹 Backend API: NFT Backend API🔹 Smart Contract: Etherscan🔹 Swagger API Docs: View API Docs
+- 🔹 **Frontend:** [NFT Minting DApp](https://kobapay-landing.onrender.com/)
+- 🔹 **Backend API:** [NFT Backend API](https://github.com/promise24o/nft-minting-server)
+- 🔹 **Swagger API Docs:** [View API Docs](https://ecommerce-ma0m.onrender.com/api-docs)
+
 
 🎥 Loom Video Walkthrough
 
-📹 Watch the demo: Loom Video
 
 🔗 Backend Repository
-
-💾 Backend Code: NFT Minting Backend
-
-📜 License
